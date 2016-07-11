@@ -7,19 +7,32 @@
 //
 
 import UIKit
+import QRCodeReader
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    lazy var readerViewController = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
+    
+    @IBAction func searchButtonAction(sender: AnyObject) {
+        readerViewController.delegate = self
+        
+        readerViewController.completionBlock = { (result: QRCodeReaderResult?) in
+            print(result)
+        }
+        
+        readerViewController.modalPresentationStyle = .FormSheet
+        presentViewController(readerViewController, animated: true, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // QRReader Delegate
+    func reader(reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
-
+    func readerDidCancel(reader: QRCodeReaderViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
 
