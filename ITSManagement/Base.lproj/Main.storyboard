@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -55,7 +54,7 @@
         <!--Add Product-->
         <scene sceneID="Sp8-2p-RSV">
             <objects>
-                <viewController title="Add Product" id="lIs-ko-7d9" sceneMemberID="viewController">
+                <viewController title="Add Product" id="lIs-ko-7d9" customClass="AddProductViewController" customModule="ITSManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SFn-2d-uUZ"/>
                         <viewControllerLayoutGuide type="bottom" id="uuf-3G-hzp"/>
@@ -64,42 +63,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttw-uu-JwN">
-                                <rect key="frame" x="20" y="72" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F5M-5i-NaJ">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="67m-MX-a2B"/>
-                                    <constraint firstAttribute="height" constant="100" id="wHa-61-8FV"/>
+                                    <constraint firstAttribute="height" constant="200" id="nma-xq-Pvw"/>
+                                    <constraint firstAttribute="width" constant="200" id="sq2-q2-vDe"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KYg-R5-kEf">
-                                <rect key="frame" x="128" y="72" width="452" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is Bundle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrX-Bq-SaS">
-                                <rect key="frame" x="128" y="115" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56w-jB-qbx">
-                                <rect key="frame" x="208" y="110" width="51" height="31"/>
-                            </switch>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="56w-jB-qbx" firstAttribute="centerY" secondItem="ZrX-Bq-SaS" secondAttribute="centerY" id="B9k-Ab-9AA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KYg-R5-kEf" secondAttribute="trailing" id="EbX-NM-HDj"/>
-                            <constraint firstItem="KYg-R5-kEf" firstAttribute="leading" secondItem="ttw-uu-JwN" secondAttribute="trailing" constant="8" id="Fcq-X9-0lU"/>
-                            <constraint firstItem="ttw-uu-JwN" firstAttribute="top" secondItem="SFn-2d-uUZ" secondAttribute="bottom" constant="8" id="U50-Ah-UwX"/>
-                            <constraint firstItem="56w-jB-qbx" firstAttribute="leading" secondItem="ZrX-Bq-SaS" secondAttribute="trailing" constant="10" id="dss-7Q-t0a"/>
-                            <constraint firstItem="KYg-R5-kEf" firstAttribute="top" secondItem="SFn-2d-uUZ" secondAttribute="bottom" constant="8" id="hT9-6e-oWT"/>
-                            <constraint firstItem="ttw-uu-JwN" firstAttribute="leading" secondItem="ePh-h4-4Vk" secondAttribute="leadingMargin" id="nZQ-ir-g09"/>
-                            <constraint firstItem="56w-jB-qbx" firstAttribute="top" secondItem="KYg-R5-kEf" secondAttribute="bottom" constant="8" id="rtQ-VT-gpL"/>
-                            <constraint firstItem="ZrX-Bq-SaS" firstAttribute="leading" secondItem="KYg-R5-kEf" secondAttribute="leading" id="uje-cp-dmZ"/>
+                            <constraint firstItem="F5M-5i-NaJ" firstAttribute="centerX" secondItem="ePh-h4-4Vk" secondAttribute="centerX" id="7IG-uo-FIK"/>
+                            <constraint firstItem="F5M-5i-NaJ" firstAttribute="centerY" secondItem="ePh-h4-4Vk" secondAttribute="centerY" id="of3-Hb-JuM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="F5M-5i-NaJ" id="ZKV-KW-F73"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9D-N4-iBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
