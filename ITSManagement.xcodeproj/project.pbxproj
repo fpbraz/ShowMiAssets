@@ -15,6 +15,7 @@
 		558B47EE1D344DFC0046DE5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558B47EC1D344DFC0046DE5C /* LaunchScreen.storyboard */; };
 		558B47F91D344DFC0046DE5C /* ITSManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B47F81D344DFC0046DE5C /* ITSManagementTests.swift */; };
 		558B48061D34674C0046DE5C /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48051D34674C0046DE5C /* AddProductViewController.swift */; };
+		558B48081D3484C10046DE5C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558B48071D3484C10046DE5C /* MapKit.framework */; };
 		83AD954256EB9B8E6CA52552 /* Pods_ITSManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */; };
 		B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		558B47F81D344DFC0046DE5C /* ITSManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITSManagementTests.swift; sourceTree = "<group>"; };
 		558B47FA1D344DFC0046DE5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558B48051D34674C0046DE5C /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		558B48071D3484C10046DE5C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5690AEE12C771252F90B054F /* Pods-ITSManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.release.xcconfig"; sourceTree = "<group>"; };
 		5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558B48081D3484C10046DE5C /* MapKit.framework in Frameworks */,
 				B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +131,7 @@
 		CD2DDC94BFA50B74AE9EECAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				558B48071D3484C10046DE5C /* MapKit.framework */,
 				5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */,
 				B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */,
 			);

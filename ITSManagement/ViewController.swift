@@ -9,6 +9,7 @@
 import UIKit
 import QRCodeReader
 import AVFoundation
+import MapKit
 
 class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 
@@ -32,6 +33,7 @@ class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 
     func readerDidCancel(reader: QRCodeReaderViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("scanToReportSegue", sender: nil)
     }
     
 }
