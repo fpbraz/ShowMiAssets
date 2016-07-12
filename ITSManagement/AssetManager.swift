@@ -1,4 +1,4 @@
-//
+ //
 //  AssetManager.swift
 //  ITSManagement
 //
@@ -11,8 +11,8 @@ import Alamofire
 
 class AssetManager {
     
-    func fetchAssets(completion: (result:[Asset]) -> ()) {
-        Alamofire.request(.GET, "http://marsupial.mybluemix.net/asset?id=48", parameters: nil)
+    func fetchAssets(url: String, completion: (result:[Asset]) -> ()) {
+        Alamofire.request(.GET, url, parameters: nil)
             .responseJSON { response in                
                 
                 if let response = response.result.value {
@@ -22,18 +22,19 @@ class AssetManager {
         }
     }
     
-    func requestAssetCreation(asset: Asset, completion: (response: NSHTTPURLResponse?)->()) {
+    func requestAssetCreation(asset: Asset, completion: (response: Asset?)->()) {
         Alamofire.request(.POST, "http://marsupial.mybluemix.net/asset",
             parameters: asset.parametersDescription(), encoding: .JSON, headers: ["Content-Type": "application/json", "Accept": "application/json"])
             .response { (request, response, data, error) in
                 do {
-                    try print(NSJSONSerialization.JSONObjectWithData((request?.HTTPBody)!, options: .AllowFragments))
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! [String:AnyObject]
+                    let asset = Asset(dictionary: json)
+                    completion(response: asset)
                 } catch {
-                    
+                    completion(response: nil)
                 }
                 
-                print(error?.localizedDescription)
-                completion(response: response)
+                print(error?.localizedDescription)                                
         }
     }
 }

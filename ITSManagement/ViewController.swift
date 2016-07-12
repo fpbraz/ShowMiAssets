@@ -36,15 +36,16 @@ class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 
     // QRReader Delegate
     func reader(reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    func readerDidCancel(reader: QRCodeReaderViewController) {
         let assetManager = AssetManager()
-        assetManager.fetchAssets { (result) in
+        
+        assetManager.fetchAssets(result.value) { (result) in
             self.dismissViewControllerAnimated(true, completion: nil)
             self.performSegueWithIdentifier("scanToReportSegue", sender: result.first)
         }
+    }
+
+    func readerDidCancel(reader: QRCodeReaderViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     

@@ -35,6 +35,8 @@
 		558B482B1D352F1B0046DE5C /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B482A1D352F1B0046DE5C /* Ticket.swift */; };
 		558B482D1D35441C0046DE5C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B482C1D35441C0046DE5C /* SuccessViewController.swift */; };
 		558B48331D3567670046DE5C /* AssetCreationSuccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48321D3567670046DE5C /* AssetCreationSuccesViewController.swift */; };
+		558B48351D356F180046DE5C /* ImageReconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48341D356F180046DE5C /* ImageReconManager.swift */; };
+		558B48371D356F5F0046DE5C /* ImageRecon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48361D356F5F0046DE5C /* ImageRecon.swift */; };
 		83AD954256EB9B8E6CA52552 /* Pods_ITSManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */; };
 		B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		558B482A1D352F1B0046DE5C /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		558B482C1D35441C0046DE5C /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		558B48321D3567670046DE5C /* AssetCreationSuccesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCreationSuccesViewController.swift; sourceTree = "<group>"; };
+		558B48341D356F180046DE5C /* ImageReconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageReconManager.swift; sourceTree = "<group>"; };
+		558B48361D356F5F0046DE5C /* ImageRecon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRecon.swift; sourceTree = "<group>"; };
 		5690AEE12C771252F90B054F /* Pods-ITSManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.release.xcconfig"; sourceTree = "<group>"; };
 		5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +149,8 @@
 				558B480F1D34A21C0046DE5C /* AssetManager.swift */,
 				558B48251D35173E0046DE5C /* GeocoderManager.swift */,
 				558B48281D352E670046DE5C /* TicketManager.swift */,
+				558B48341D356F180046DE5C /* ImageReconManager.swift */,
+				558B48361D356F5F0046DE5C /* ImageRecon.swift */,
 				558B482A1D352F1B0046DE5C /* Ticket.swift */,
 				558B48271D3529EC0046DE5C /* Asset */,
 				255E5ED21D34F2A000248F25 /* ImageUploader.swift */,
@@ -404,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				558B48181D34A48E0046DE5C /* ProductCharacteristic.swift in Sources */,
+				558B48371D356F5F0046DE5C /* ImageRecon.swift in Sources */,
 				558B48141D34A3F70046DE5C /* ProductOfering.swift in Sources */,
 				558B481E1D34A5A00046DE5C /* RelatedParty.swift in Sources */,
 				558B481C1D34A5680046DE5C /* BillingAccount.swift in Sources */,
@@ -426,6 +433,7 @@
 				558B48101D34A21C0046DE5C /* AssetManager.swift in Sources */,
 				558B482B1D352F1B0046DE5C /* Ticket.swift in Sources */,
 				558B48161D34A44D0046DE5C /* ProductSpecification.swift in Sources */,
+				558B48351D356F180046DE5C /* ImageReconManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

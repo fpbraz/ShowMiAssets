@@ -55,17 +55,47 @@ class Asset {
         isCustomerVisible = NSString(string: (dictionary["isCustomerVisible"] as! String)).boolValue
         isBundle = NSString(string: (dictionary["isBundle"] as! String)).boolValue
         productSerialNumber = dictionary["productSerialNumber"] as? String
-        startDate = dateFormatter.dateFromString(dictionary["startDate"] as! String)
-        orderDate = dateFormatter.dateFromString(dictionary["orderDate"] as! String)
+        if let startString = dictionary["startDate"] as? String{
+            startDate = dateFormatter.dateFromString(startString)
+        }
+        if let orderString = dictionary["orderDate"] as? String{
+            orderDate = dateFormatter.dateFromString(orderString)
+        }
+//        orderDate = dateFormatter.dateFromString(dictionary["orderDate"] as! String)
         placeURLString = dictionary["place"] as? String
         productOffering = ProductOfering(dictionary: dictionary["productOffering"] as! [String:AnyObject])
-        productSpecification = ProductSpecification(dictionary: dictionary["productSpecification"] as! [String:AnyObject])
+        
+        if let specification = dictionary["productSpecification"] as? [String:AnyObject] {
+           productSpecification = ProductSpecification(dictionary: specification)
+        }
+        
         productCharacteristic = ProductCharacteristic(dictionaryList: dictionary["productCharacteristic"] as! [[String:AnyObject]])
-        productRelationship = ProductRelationship(dictionaryList: dictionary["productRelationship"] as! [[String:AnyObject]])
-        billingAccount = BillingAccount(dictionaryList: dictionary["billingAccount"] as! [[String:AnyObject]])
-        relatedParty = RelatedParty(dictionaryList: dictionary["relatedParty"] as! [[String:AnyObject]])
-        realizingServiceID = ((dictionary["realizingService"] as! [[String:AnyObject]]).first!)["id"] as? String
-        productPrice = ProductPrice(dictionaryList: dictionary["productPrice"] as! [[String:AnyObject]])
+        
+        if let relationship = dictionary["productRelationship"] as? [[String:AnyObject]] {
+            if relationship.count > 0 {
+                productRelationship = ProductRelationship(dictionaryList: relationship)
+            }
+        }
+        
+        if let billingAccount = dictionary["billingAccount"] as? [[String:AnyObject]] {
+            if billingAccount.count > 0 {
+                self.billingAccount = BillingAccount(dictionaryList: billingAccount)
+            }
+        }
+        
+        if let relatedParty = dictionary["relatedParty"] as? [[String:AnyObject]] {
+            if relatedParty.count > 0 {
+                self.relatedParty = RelatedParty(dictionaryList: relatedParty)
+            }
+        }
+        
+//        realizingServiceID = ((dictionary["realizingService"] as! [[String:AnyObject]]).first!)["id"] as? String
+        
+        if let productPrice = dictionary["productPrice"] as? [[String:AnyObject]] {
+            if productPrice.count > 0 {
+                self.productPrice = ProductPrice(dictionaryList: productPrice)
+            }
+        }
     }
     
     func parametersDescription() -> [String: AnyObject] {

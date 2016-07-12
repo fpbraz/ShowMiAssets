@@ -37,6 +37,10 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         return GeocoderManager()
     }()
     
+    lazy var imageReconManager: ImageReconManager = {
+        return ImageReconManager()
+    }()
+    
     var assetPicture: UIImage? {
         didSet {
             imageView.image = assetPicture
@@ -79,12 +83,16 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         ImageUploader.uploadImage(imageView.image) { (url) in
             let asset = self.getAssetFromUI()
             asset.productCharacteristic?.picturesURLs = [url!]
-            SwiftSpinner.sharedInstance.titleLabel.text = "Creating Asset"
+            SwiftSpinner.sharedInstance.titleLabel.text = "Analyzing image"
             
-            self.assetManager.requestAssetCreation(asset) { response in
-                SwiftSpinner.hide()
-                self.performSegueWithIdentifier("assetCreationToSuccess", sender: url!)
-            }
+            self.imageReconManager.fetchImageReconForImage(url!, completion: { (imageRecon) in
+                SwiftSpinner.sharedInstance.titleLabel.text = "Creating Asset"
+                
+                self.assetManager.requestAssetCreation(asset) { response in
+                    SwiftSpinner.hide()
+                    self.performSegueWithIdentifier("assetCreationToSuccess", sender: response!.urlString)
+                }
+            })
         }
     }
     
