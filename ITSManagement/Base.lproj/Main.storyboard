@@ -380,11 +380,71 @@
                         <outletCollection property="selectionButtons" destination="q2O-Em-KzK" collectionClass="NSMutableArray" id="ctJ-H8-K4b"/>
                         <outletCollection property="selectionButtons" destination="NlQ-OW-CnP" collectionClass="NSMutableArray" id="4wG-ru-kgA"/>
                         <outletCollection property="selectionButtons" destination="0Oi-kI-I0k" collectionClass="NSMutableArray" id="S52-Hr-gUl"/>
+                        <segue destination="gOr-5F-2Y3" kind="show" identifier="reportToSuccessSegue" id="2SP-2K-pLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAw-w0-zEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1814" y="634"/>
+        </scene>
+        <!--Success View Controller-->
+        <scene sceneID="tME-IZ-s1M">
+            <objects>
+                <viewController id="gOr-5F-2Y3" customClass="SuccessViewController" customModule="ITSManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8hK-OZ-dPA"/>
+                        <viewControllerLayoutGuide type="bottom" id="i7R-yU-zAL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KRM-N0-Wfl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afB-Nn-j0Y">
+                                <rect key="frame" x="20" y="104" width="560" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for reporting issues with this asset. You colaboration is very important for us" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-fY-3FD">
+                                <rect key="frame" x="20" y="169" width="560" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njs-fj-VbD">
+                                <rect key="frame" x="20" y="504" width="560" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gHc-DG-K2D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Go back to home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackHomeButtonAction" destination="gOr-5F-2Y3" eventType="touchUpInside" id="sjf-hJ-Xn0"/>
+                                    <action selector="searchButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QZX-Ob-gRm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i7R-yU-zAL" firstAttribute="top" secondItem="njs-fj-VbD" secondAttribute="bottom" constant="8" id="3dZ-hu-qgd"/>
+                            <constraint firstItem="6dc-fY-3FD" firstAttribute="leading" secondItem="KRM-N0-Wfl" secondAttribute="leadingMargin" id="5ep-MK-ISl"/>
+                            <constraint firstItem="6dc-fY-3FD" firstAttribute="top" secondItem="afB-Nn-j0Y" secondAttribute="bottom" constant="30" id="GCh-TP-cDQ"/>
+                            <constraint firstItem="afB-Nn-j0Y" firstAttribute="top" secondItem="8hK-OZ-dPA" secondAttribute="bottom" constant="40" id="Ju8-RV-lbY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6dc-fY-3FD" secondAttribute="trailing" id="SOp-8c-5oY"/>
+                            <constraint firstItem="njs-fj-VbD" firstAttribute="trailing" secondItem="KRM-N0-Wfl" secondAttribute="trailingMargin" id="YCm-f5-RtS"/>
+                            <constraint firstItem="afB-Nn-j0Y" firstAttribute="leading" secondItem="KRM-N0-Wfl" secondAttribute="leadingMargin" id="gjM-vd-7TN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="afB-Nn-j0Y" secondAttribute="trailing" id="mG0-RX-4jS"/>
+                            <constraint firstItem="6dc-fY-3FD" firstAttribute="centerX" secondItem="KRM-N0-Wfl" secondAttribute="centerX" id="pec-64-jQ4"/>
+                            <constraint firstItem="njs-fj-VbD" firstAttribute="leading" secondItem="KRM-N0-Wfl" secondAttribute="leadingMargin" id="uJ9-KW-vEW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tx9-yj-nsi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2554" y="634"/>
         </scene>
         <!--Add Product-->
         <scene sceneID="Sp8-2p-RSV">

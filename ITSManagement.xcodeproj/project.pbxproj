@@ -33,6 +33,7 @@
 		558B48261D35173E0046DE5C /* GeocoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48251D35173E0046DE5C /* GeocoderManager.swift */; };
 		558B48291D352E670046DE5C /* TicketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48281D352E670046DE5C /* TicketManager.swift */; };
 		558B482B1D352F1B0046DE5C /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B482A1D352F1B0046DE5C /* Ticket.swift */; };
+		558B482D1D35441C0046DE5C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B482C1D35441C0046DE5C /* SuccessViewController.swift */; };
 		83AD954256EB9B8E6CA52552 /* Pods_ITSManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */; };
 		B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		558B48251D35173E0046DE5C /* GeocoderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocoderManager.swift; sourceTree = "<group>"; };
 		558B48281D352E670046DE5C /* TicketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketManager.swift; sourceTree = "<group>"; };
 		558B482A1D352F1B0046DE5C /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		558B482C1D35441C0046DE5C /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		5690AEE12C771252F90B054F /* Pods-ITSManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.release.xcconfig"; sourceTree = "<group>"; };
 		5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				558B48231D34CC600046DE5C /* AssetDetailViewController.swift */,
 				558B48051D34674C0046DE5C /* AddProductViewController.swift */,
 				558B48091D348C380046DE5C /* ReportViewController.swift */,
+				558B482C1D35441C0046DE5C /* SuccessViewController.swift */,
 				558B480B1D3496E70046DE5C /* SelectionButton.swift */,
 				558B480F1D34A21C0046DE5C /* AssetManager.swift */,
 				558B48251D35173E0046DE5C /* GeocoderManager.swift */,
@@ -411,6 +414,7 @@
 				558B48221D34A8950046DE5C /* Price.swift in Sources */,
 				558B48061D34674C0046DE5C /* AddProductViewController.swift in Sources */,
 				558B48261D35173E0046DE5C /* GeocoderManager.swift in Sources */,
+				558B482D1D35441C0046DE5C /* SuccessViewController.swift in Sources */,
 				558B480A1D348C380046DE5C /* ReportViewController.swift in Sources */,
 				558B48241D34CC600046DE5C /* AssetDetailViewController.swift in Sources */,
 				558B47E91D344DFC0046DE5C /* ITSManagement.xcdatamodeld in Sources */,

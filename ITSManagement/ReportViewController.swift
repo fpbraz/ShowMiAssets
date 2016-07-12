@@ -166,6 +166,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             self.ticketManager.requestTicketCreation(ticket) { response in
                 print(response!.statusCode)
+                self.performSegueWithIdentifier("reportToSuccessSegue", sender: nil)
             }
         }
     }
