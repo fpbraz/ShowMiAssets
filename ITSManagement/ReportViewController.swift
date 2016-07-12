@@ -117,7 +117,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 					self.locationButton.setTitle(address, forState: .Normal)
 				}
 			})
-			
 		}
 	}
 	
@@ -154,23 +153,24 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 	
 	private func sendReport() {
 
-		ImageUploader.uploadImage(nil) {
-			print("Image uploading finished")
-            
-            let ticket = Ticket()
-            ticket.issue = ""
-            ticket.issue_type = self.getIssueTypeFromUI()            
-            ticket.assetID = String(self.asset?.id)
-            ticket.photo = ""//assetPicture.addres
-            ticket.coordinates = self.userLocation?.coordinate ?? CLLocationCoordinate2DMake(0, 0)
-            
-            self.ticketManager.requestTicketCreation(ticket) { response in
-                print(response!.statusCode)
-                self.performSegueWithIdentifier("reportToSuccessSegue", sender: nil)
-            }
-        }
-    }
-	
+		ImageUploader.uploadImage(assetPicture) { photoUrl in
+			print("Image uploading finished: \(photoUrl)")
+			
+			let ticket = Ticket()
+			ticket.issue = ""
+			ticket.issue_type = self.getIssueTypeFromUI()
+			ticket.assetID = String(self.asset?.id)
+			ticket.photo = ""//assetPicture.addres
+			ticket.coordinates = self.userLocation?.coordinate ?? CLLocationCoordinate2DMake(0, 0)
+			
+			self.ticketManager.requestTicketCreation(ticket) { response in
+				print(response!.statusCode)
+				self.performSegueWithIdentifier("reportToSuccessSegue", sender: nil)
+			}
+			
+		}
+	}
+
 	private func updateUI() {
 
 //		let pictureSelected = assetPicture != nil
