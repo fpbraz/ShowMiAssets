@@ -160,11 +160,5 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             })
         }
-    }
-    
-    
-//    "name":name,
-//    "owner":owner,
-//    "coordinates":coordinatesString,
-//    "photos":photos,
+    }    
 }
