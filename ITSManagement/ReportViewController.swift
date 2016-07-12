@@ -41,12 +41,10 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
             hideCameraButton()
         }
     }
-    
-    func showImagePicker() {
-        imagePickerController.delegate = self
-        presentViewController(imagePickerController, animated: true, completion: nil)
-    }
-    
+
+	
+	// MARK: - User actions handling
+	
     @IBAction func photoButtonAction(sender: AnyObject) {
         showImagePicker()
     }
@@ -54,7 +52,16 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func locationButtonAction() {
         requestUserLocation()
     }
-    
+	
+	@IBAction func selectionButtonAction(sender: AnyObject) {
+		for button in selectionButtons {
+			button.selected = button === sender
+		}
+	}
+
+	
+	// MARK: - UIImagePickerControllerDelegate
+	
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             assetPicture = pickedImage
@@ -62,49 +69,55 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func hideCameraButton() {
-        UIView.animateWithDuration(0.25, animations: {
-            self.cameraButton.alpha = 0
-        }, completion: { _ in
-                self.cameraButton.hidden = true
-                self.cameraButton.alpha = 1
-        })
-    }
-    
-    func requestUserLocation() {
-        self.locationButton.enabled = false
-        self.locationActivityIndicator.startAnimating()
-        
-        locationManager.delegate = self
-        
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
-        }
-
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let userLocation = locations.first {
-            self.userLocation = userLocation
-            manager.stopUpdatingLocation()
-            
-            geocoderManager.fetchAddress(userLocation.coordinate, completion: { (address) in
-                self.locationActivityIndicator.stopAnimating()
-                if let address = address {
-                    self.locationButton.setTitle(address, forState: .Normal)
-                }
-            })
-            
-        }
-    }
-    
-    @IBAction func selectionButtonAction(sender: AnyObject) {
-        for button in selectionButtons {
-            button.selected = button === sender            
-        }
-    }
-    
+	
+	
+	// MARK: - CLLocationManagerDelegate
+	
+	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if let userLocation = locations.first {
+			self.userLocation = userLocation
+			manager.stopUpdatingLocation()
+			
+			geocoderManager.fetchAddress(userLocation.coordinate, completion: { (address) in
+				self.locationActivityIndicator.stopAnimating()
+				if let address = address {
+					self.locationButton.setTitle(address, forState: .Normal)
+				}
+			})
+			
+		}
+	}
+	
+	
+	// MARK: - Private methods
+	
+	private func hideCameraButton() {
+		UIView.animateWithDuration(0.25, animations: {
+			self.cameraButton.alpha = 0
+			}, completion: { _ in
+				self.cameraButton.hidden = true
+				self.cameraButton.alpha = 1
+		})
+	}
+	
+	private func requestUserLocation() {
+		self.locationButton.enabled = false
+		self.locationActivityIndicator.startAnimating()
+		
+		locationManager.delegate = self
+		
+		if CLLocationManager.authorizationStatus() == .NotDetermined {
+			locationManager.requestWhenInUseAuthorization()
+		} else {
+			locationManager.startUpdatingLocation()
+		}
+		
+	}
+	
+	private func showImagePicker() {
+		imagePickerController.delegate = self
+		presentViewController(imagePickerController, animated: true, completion: nil)
+	}
+	
+>>>>>>> code beautifying
 }
