@@ -522,6 +522,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cd-X2-PaG">
+                                        <rect key="frame" x="50" y="196" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -533,8 +539,12 @@
                                     <constraint firstItem="4fB-0u-EY6" firstAttribute="leading" secondItem="qaH-sY-pf2" secondAttribute="leading" constant="8" id="PzZ-ca-JGV"/>
                                     <constraint firstAttribute="trailing" secondItem="dw8-OL-3Fu" secondAttribute="trailing" constant="8" id="QxR-sz-8SI"/>
                                     <constraint firstItem="dw8-OL-3Fu" firstAttribute="leading" secondItem="OLK-St-cnt" secondAttribute="trailing" constant="8" id="U5o-ls-L3K"/>
+                                    <constraint firstItem="6cd-X2-PaG" firstAttribute="leading" secondItem="qaH-sY-pf2" secondAttribute="leading" constant="8" id="ZZi-4u-p9L"/>
                                     <constraint firstAttribute="trailing" secondItem="oE8-Ds-xJg" secondAttribute="trailing" constant="8" id="Zoc-uN-73x"/>
+                                    <constraint firstItem="6cd-X2-PaG" firstAttribute="top" secondItem="OLK-St-cnt" secondAttribute="bottom" constant="8" id="ZzU-fX-5Tn"/>
                                     <constraint firstItem="sIK-pk-DNG" firstAttribute="top" secondItem="dw8-OL-3Fu" secondAttribute="bottom" constant="8" id="akP-SJ-E1y"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6cd-X2-PaG" secondAttribute="trailing" constant="8" id="bln-fb-VBm"/>
+                                    <constraint firstItem="4fB-0u-EY6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6cd-X2-PaG" secondAttribute="bottom" constant="8" id="cBy-zW-gEM"/>
                                     <constraint firstAttribute="bottom" secondItem="4fB-0u-EY6" secondAttribute="bottom" constant="8" id="foQ-gG-oho"/>
                                     <constraint firstItem="OLK-St-cnt" firstAttribute="leading" secondItem="qaH-sY-pf2" secondAttribute="leading" constant="8" id="hQg-nP-cjp"/>
                                     <constraint firstAttribute="trailing" secondItem="sIK-pk-DNG" secondAttribute="trailing" constant="8" id="ldA-Uj-sZo"/>
@@ -562,6 +572,7 @@
                         <outlet property="locationActivityIndicator" destination="vTL-3C-NBM" id="DOT-hn-lcD"/>
                         <outlet property="nameTextField" destination="oE8-Ds-xJg" id="1Jw-7f-C7b"/>
                         <outlet property="ownerTextField" destination="dw8-OL-3Fu" id="dkT-lV-pnX"/>
+                        <outlet property="tagsLabel" destination="6cd-X2-PaG" id="Ul9-Jc-sgF"/>
                         <segue destination="xiR-SM-g4a" kind="show" identifier="assetCreationToSuccess" id="c8j-eZ-mE2"/>
                     </connections>
                 </viewController>

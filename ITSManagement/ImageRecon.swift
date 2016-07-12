@@ -16,15 +16,15 @@ class ImageRecon {
     init(dictionary:[String:AnyObject]) {
         let imagesDict = (dictionary["images"] as! [[String:AnyObject]]).first!
         
-        if let classifiersDict = imagesDict["classifiers"] as? [String:AnyObject] {
-            if let classesDict = classifiersDict["classes"] as? [[String:AnyObject]] {
+        if let classifiersList = imagesDict["classifiers"] as? [[String:AnyObject]] {
+            if let classesDict = classifiersList.first!["classes"] as? [[String:AnyObject]] {
                 var jsonTags = [String]()
                 
                 for dictionary in classesDict {
                     jsonTags.append(dictionary["class"] as! String)
                 }
                 
-                tags = jsonTags
+                self.tags = jsonTags
             } else {
                 tags = [String]()
             }

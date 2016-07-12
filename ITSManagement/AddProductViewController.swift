@@ -21,9 +21,13 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var createButton: UIButton!
     
+    @IBOutlet weak var tagsLabel: UILabel!
+    
     @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
     
     var userLocation: CLLocation?
+    
+    var imageURL: String?
     
     lazy var assetManager: AssetManager = {
         return AssetManager()
@@ -79,28 +83,43 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func createButtonAction(sender: AnyObject) {
-        SwiftSpinner.show("Uploading Image")
-        ImageUploader.uploadImage(imageView.image) { (url) in
-            let asset = self.getAssetFromUI()
-            asset.productCharacteristic?.picturesURLs = [url!]
-            SwiftSpinner.sharedInstance.titleLabel.text = "Analyzing image"
-            
-            self.imageReconManager.fetchImageReconForImage(url!, completion: { (imageRecon) in
-                SwiftSpinner.sharedInstance.titleLabel.text = "Creating Asset"
-                
-                self.assetManager.requestAssetCreation(asset) { response in
-                    SwiftSpinner.hide()
-                    self.performSegueWithIdentifier("assetCreationToSuccess", sender: response!.urlString)
-                }
-            })
+        SwiftSpinner.show("Creating Asset")
+        
+        let asset = self.getAssetFromUI()
+        asset.productCharacteristic?.picturesURLs = [imageURL!]
+
+        self.assetManager.requestAssetCreation(asset) { response in
+            SwiftSpinner.hide()
+            self.performSegueWithIdentifier("assetCreationToSuccess", sender: response!.urlString)
         }
     }
-    
+
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            assetPicture = pickedImage
+            assetPicture = resizeImage(pickedImage)
+                
+            SwiftSpinner.show("Uploading Image")
+            ImageUploader.uploadImage(assetPicture) { (url) in
+                SwiftSpinner.sharedInstance.titleLabel.text = "Analyzing image"
+                
+                self.imageURL = url
+                
+                self.imageReconManager.fetchImageReconForImage(url!, completion: { (imageRecon) in
+                    
+                    if let imageRecon = imageRecon where imageRecon.tags.count > 0 {
+                        
+                        var result = ""
+                        for tag in imageRecon.tags {
+                            result += " " + tag + ","
+                        }
+                        
+                        self.tagsLabel.text = result.substringToIndex(result.endIndex.predecessor())
+                    }
+                    SwiftSpinner.hide()
+                })
+            }
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -162,6 +181,20 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
+    
+    func resizeImage(image: UIImage) -> UIImage {
+        let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(0.2, 0.2))
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        image.drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
     
 //    "name":name,
 //    "owner":owner,
