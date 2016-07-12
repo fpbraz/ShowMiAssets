@@ -11,6 +11,7 @@ target 'ITSManagement' do
   pod 'Alamofire', '~> 3.4'
   pod 'AlamofireImage', '~> 2.0'
   pod 'Cloudinary'
+  pod "SwiftSpinner"
   
   target 'ITSManagementTests' do
     inherit! :search_paths

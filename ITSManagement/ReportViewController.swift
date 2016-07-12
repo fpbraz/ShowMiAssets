@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-
+import SwiftSpinner
 
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
@@ -152,10 +152,13 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 	}
 	
 	private func sendReport() {
-
+        SwiftSpinner.show("Uploading Image")
+        
 		ImageUploader.uploadImage(assetPicture) { photoUrl in
 			print("Image uploading finished: \(photoUrl)")
 			
+            SwiftSpinner.sharedInstance.titleLabel.text = "Creating Ticket"
+            
 			let ticket = Ticket()
 			ticket.issue = ""
 			ticket.issue_type = self.getIssueTypeFromUI()
@@ -165,11 +168,17 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 			
 			self.ticketManager.requestTicketCreation(ticket) { response in
 				print(response!.statusCode)
-				self.performSegueWithIdentifier("reportToSuccessSegue", sender: nil)
+                SwiftSpinner.hide()
+                
+                self.performSelector(#selector(self.showSuccess), withObject: nil, afterDelay: 0.5)
 			}
 			
 		}
 	}
+    
+    @objc private func showSuccess() {
+        self.performSegueWithIdentifier("reportToSuccessSegue", sender: nil)
+    }
 
 	private func updateUI() {
 
