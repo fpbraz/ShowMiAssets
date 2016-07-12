@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BcU-ms-WhL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="khQ-QQ-0cH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -204,12 +204,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFk-uh-8RG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="618"/>
+            <point key="canvasLocation" x="1118" y="634"/>
         </scene>
-        <!--View Controller-->
+        <!--Report View Controller-->
         <scene sceneID="rJ5-Pc-jZ2">
             <objects>
-                <viewController id="khQ-QQ-0cH" sceneMemberID="viewController">
+                <viewController id="khQ-QQ-0cH" customClass="ReportViewController" customModule="ITSManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mC0-np-34e"/>
                         <viewControllerLayoutGuide type="bottom" id="9hr-NK-QMj"/>
@@ -224,12 +224,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PG-MV-g3C">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="214"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-sF-cAN">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-sF-cAN">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="214"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCE-Yv-pvE">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="214"/>
                                                 <state key="normal" image="slr_camera"/>
+                                                <connections>
+                                                    <action selector="photoButtonAction:" destination="khQ-QQ-0cH" eventType="touchUpInside" id="U7v-8s-LXc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,12 +247,18 @@
                                             <constraint firstAttribute="bottom" secondItem="RCE-Yv-pvE" secondAttribute="bottom" id="zfW-0q-RZD"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMf-3y-ilf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMf-3y-ilf">
                                         <rect key="frame" x="0.0" y="214" width="600" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Giq-rB-6lH"/>
                                         </constraints>
-                                        <state key="normal" title="Add location"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add location" image="location_pin">
+                                            <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="locationButtonAction" destination="khQ-QQ-0cH" eventType="touchUpInside" id="t5b-Ib-fdK"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDe-kT-vAU">
                                         <rect key="frame" x="0.0" y="264" width="600" height="272"/>
@@ -260,29 +269,38 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2O-Em-KzK">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2O-Em-KzK" customClass="SelectionButton" customModule="ITSManagement" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="33" width="584" height="72"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Damaged">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectionButtonAction:" destination="khQ-QQ-0cH" eventType="touchUpInside" id="2at-T7-Eaa"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlQ-OW-CnP">
-                                                <rect key="frame" x="8" y="113" width="584" height="71"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Misplaced">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oi-kI-I0k">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oi-kI-I0k" customClass="SelectionButton" customModule="ITSManagement" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="192" width="584" height="72"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Over capacity">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectionButtonAction:" destination="khQ-QQ-0cH" eventType="touchUpInside" id="1E7-pj-oGY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlQ-OW-CnP" customClass="SelectionButton" customModule="ITSManagement" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="113" width="584" height="71"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Misplaced">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectionButtonAction:" destination="khQ-QQ-0cH" eventType="touchUpInside" id="Le5-Le-kNd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,6 +348,13 @@
                             <constraint firstItem="oAI-Fe-fVu" firstAttribute="leading" secondItem="yjJ-dY-xdK" secondAttribute="leading" id="dvF-s8-pQ6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="RCE-Yv-pvE" id="Oc1-hX-lAW"/>
+                        <outlet property="userImageView" destination="d4i-sF-cAN" id="WFd-qC-bGb"/>
+                        <outletCollection property="selectionButtons" destination="q2O-Em-KzK" collectionClass="NSMutableArray" id="ctJ-H8-K4b"/>
+                        <outletCollection property="selectionButtons" destination="NlQ-OW-CnP" collectionClass="NSMutableArray" id="4wG-ru-kgA"/>
+                        <outletCollection property="selectionButtons" destination="0Oi-kI-I0k" collectionClass="NSMutableArray" id="S52-Hr-gUl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAw-w0-zEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -371,6 +396,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location_pin" width="32" height="32"/>
         <image name="slr_camera" width="128" height="128"/>
     </resources>
 </document>

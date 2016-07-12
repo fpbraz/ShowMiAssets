@@ -16,6 +16,8 @@
 		558B47F91D344DFC0046DE5C /* ITSManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B47F81D344DFC0046DE5C /* ITSManagementTests.swift */; };
 		558B48061D34674C0046DE5C /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48051D34674C0046DE5C /* AddProductViewController.swift */; };
 		558B48081D3484C10046DE5C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558B48071D3484C10046DE5C /* MapKit.framework */; };
+		558B480A1D348C380046DE5C /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48091D348C380046DE5C /* ReportViewController.swift */; };
+		558B480C1D3496E70046DE5C /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B480B1D3496E70046DE5C /* SelectionButton.swift */; };
 		83AD954256EB9B8E6CA52552 /* Pods_ITSManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */; };
 		B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +49,8 @@
 		558B47FA1D344DFC0046DE5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558B48051D34674C0046DE5C /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		558B48071D3484C10046DE5C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		558B48091D348C380046DE5C /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		558B480B1D3496E70046DE5C /* SelectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		5690AEE12C771252F90B054F /* Pods-ITSManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.release.xcconfig"; sourceTree = "<group>"; };
 		5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +103,8 @@
 				558B47E01D344DFC0046DE5C /* AppDelegate.swift */,
 				558B47E21D344DFC0046DE5C /* ViewController.swift */,
 				558B48051D34674C0046DE5C /* AddProductViewController.swift */,
+				558B48091D348C380046DE5C /* ReportViewController.swift */,
+				558B480B1D3496E70046DE5C /* SelectionButton.swift */,
 				558B47E41D344DFC0046DE5C /* Main.storyboard */,
 				558B47EA1D344DFC0046DE5C /* Assets.xcassets */,
 				558B47EC1D344DFC0046DE5C /* LaunchScreen.storyboard */,
@@ -341,7 +347,9 @@
 			files = (
 				558B47E31D344DFC0046DE5C /* ViewController.swift in Sources */,
 				558B47E11D344DFC0046DE5C /* AppDelegate.swift in Sources */,
+				558B480C1D3496E70046DE5C /* SelectionButton.swift in Sources */,
 				558B48061D34674C0046DE5C /* AddProductViewController.swift in Sources */,
+				558B480A1D348C380046DE5C /* ReportViewController.swift in Sources */,
 				558B47E91D344DFC0046DE5C /* ITSManagement.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
