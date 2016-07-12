@@ -16,14 +16,10 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet var selectionButtons: [SelectionButton]!
-<<<<<<< 3bf927e170c1848dc83540df0c87d18c0740ad55
-    
+	
     @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
-    
-=======
 	@IBOutlet var reportButton: UIBarButtonItem!
 	
->>>>>>> Added Cloudinary for image upload
     var userLocation: CLLocation?
     
     lazy var geocoderManager: GeocoderManager = {
@@ -146,9 +142,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 		presentViewController(imagePickerController, animated: true, completion: nil)
 	}
 	
-<<<<<<< 3bf927e170c1848dc83540df0c87d18c0740ad55
->>>>>>> code beautifying
-=======
 	private func sendReport() {
 
 		ImageUploader.uploadImage(assetPicture) {
@@ -167,5 +160,4 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 		reportButton.enabled = issueTypeSelected
 	}
 	
->>>>>>> Added Cloudinary for image upload
 }
