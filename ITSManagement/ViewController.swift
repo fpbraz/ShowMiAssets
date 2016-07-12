@@ -15,6 +15,7 @@ class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 
     lazy var readerViewController = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
     
+    
     @IBAction func searchButtonAction(sender: AnyObject) {
         readerViewController.delegate = self
         

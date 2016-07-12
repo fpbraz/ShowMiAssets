@@ -13,11 +13,7 @@ class AssetManager {
     
     func fetchAssets(completion: (result:[Asset]) -> ()) {
         Alamofire.request(.GET, "http://marsupial.mybluemix.net/asset?id=48", parameters: nil)
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
+            .responseJSON { response in                
                 
                 if let response = response.result.value {
                     let asset = Asset(dictionary: response as! [String:AnyObject])

@@ -11,11 +11,18 @@ import CoreLocation
 
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet var selectionButtons: [SelectionButton]!
     
+    @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
+    
     var userLocation: CLLocation?
+    
+    lazy var geocoderManager: GeocoderManager = {
+       return GeocoderManager()
+    }()
     
     lazy var locationManager: CLLocationManager = {
         return CLLocationManager()
@@ -66,15 +73,31 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func requestUserLocation() {
+        self.locationButton.enabled = false
+        self.locationActivityIndicator.startAnimating()
+        
+        locationManager.delegate = self
+        
         if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
+        } else {
+            locationManager.startUpdatingLocation()
         }
+
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userLocation = locations.first {
             self.userLocation = userLocation
+            manager.stopUpdatingLocation()
+            
+            geocoderManager.fetchAddress(userLocation.coordinate, completion: { (address) in
+                self.locationActivityIndicator.stopAnimating()
+                if let address = address {
+                    self.locationButton.setTitle(address, forState: .Normal)
+                }
+            })
+            
         }
     }
     

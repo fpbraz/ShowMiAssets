@@ -257,6 +257,7 @@
                                         <rect key="frame" x="0.0" y="214" width="600" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Giq-rB-6lH"/>
+                                            <constraint firstAttribute="width" constant="600" id="HWs-7I-yPa"/>
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Add location" image="location_pin">
@@ -266,6 +267,9 @@
                                             <action selector="locationButtonAction" destination="khQ-QQ-0cH" eventType="touchUpInside" id="t5b-Ib-fdK"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="10F-tq-k6u">
+                                        <rect key="frame" x="572" y="229" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDe-kT-vAU">
                                         <rect key="frame" x="0.0" y="264" width="600" height="272"/>
                                         <subviews>
@@ -333,6 +337,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="qDe-kT-vAU" firstAttribute="top" secondItem="QMf-3y-ilf" secondAttribute="bottom" id="Iep-VO-iqa"/>
+                                    <constraint firstItem="10F-tq-k6u" firstAttribute="centerY" secondItem="QMf-3y-ilf" secondAttribute="centerY" id="Lyr-nC-geF"/>
+                                    <constraint firstAttribute="trailing" secondItem="10F-tq-k6u" secondAttribute="trailing" constant="8" id="Upz-qR-pJJ"/>
                                     <constraint firstItem="QMf-3y-ilf" firstAttribute="top" secondItem="4PG-MV-g3C" secondAttribute="bottom" id="Vd2-L0-7ep"/>
                                     <constraint firstItem="qDe-kT-vAU" firstAttribute="leading" secondItem="oAI-Fe-fVu" secondAttribute="leading" id="aHk-9z-Pau"/>
                                     <constraint firstAttribute="bottom" secondItem="qDe-kT-vAU" secondAttribute="bottom" id="bk5-2O-tCu"/>
@@ -356,6 +362,8 @@
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="RCE-Yv-pvE" id="Oc1-hX-lAW"/>
+                        <outlet property="locationActivityIndicator" destination="10F-tq-k6u" id="8W1-aZ-ncb"/>
+                        <outlet property="locationButton" destination="QMf-3y-ilf" id="Qbs-xr-ym6"/>
                         <outlet property="userImageView" destination="d4i-sF-cAN" id="WFd-qC-bGb"/>
                         <outletCollection property="selectionButtons" destination="q2O-Em-KzK" collectionClass="NSMutableArray" id="ctJ-H8-K4b"/>
                         <outletCollection property="selectionButtons" destination="NlQ-OW-CnP" collectionClass="NSMutableArray" id="4wG-ru-kgA"/>
