@@ -13,15 +13,20 @@ class TicketManager {
     
     func requestTicketCreation(ticket: Ticket, completion: (response: NSHTTPURLResponse?)->()) {
         
-        Alamofire.request(.POST, "http://marsupial.mybluemix.net/ticket",
-            parameters: ticket.parametersDescription(), encoding: .JSON, headers: ["Content-Type": "application/json", "Accept": "application/json"])
-            .response { (request, response, data, error) in
-                do {
-                    try print(NSJSONSerialization.JSONObjectWithData((request?.HTTPBody)!, options: .AllowFragments))
-                } catch {
-                    
-                }
-                
+        Alamofire
+			.request(
+				.POST,
+				"http://marsupial.mybluemix.net/ticket",
+				parameters:
+				ticket.parametersDescription(),
+				encoding: .JSON,
+				headers: ["Content-Type": "application/json", "Accept": "application/json"]
+			)
+            .response {
+				(request, response, data, error) in
+				
+                try! print(NSJSONSerialization.JSONObjectWithData((request?.HTTPBody)!, options: .AllowFragments))
+				
                 print(error?.localizedDescription)
                 completion(response: response)
         }
