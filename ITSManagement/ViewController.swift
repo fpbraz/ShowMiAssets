@@ -16,14 +16,20 @@ class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     lazy var readerViewController = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
     
     @IBAction func searchButtonAction(sender: AnyObject) {
-        readerViewController.delegate = self
-        
-        readerViewController.completionBlock = { (result: QRCodeReaderResult?) in
+        let assetManager = AssetManager()
+        assetManager.fetchAssets { (result) in
             print(result)
         }
         
-        readerViewController.modalPresentationStyle = .FormSheet
-        presentViewController(readerViewController, animated: true, completion: nil)
+        
+//        readerViewController.delegate = self
+//        
+//        readerViewController.completionBlock = { (result: QRCodeReaderResult?) in
+//            print(result)
+//        }
+//        
+//        readerViewController.modalPresentationStyle = .FormSheet
+//        presentViewController(readerViewController, animated: true, completion: nil)
     }
 
     // QRReader Delegate

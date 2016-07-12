@@ -8,7 +8,8 @@ target 'ITSManagement' do
   # Pods for ITSManagement
   pod 'QRCodeReader.swift', '~> 6.0.0'
   pod "QRCode", "~> 0.5"
-
+  pod 'Alamofire', '~> 3.4'
+  
   target 'ITSManagementTests' do
     inherit! :search_paths
     # Pods for testing
