@@ -26,15 +26,28 @@ class AssetManager {
         Alamofire.request(.POST, "http://marsupial.mybluemix.net/asset",
             parameters: asset.parametersDescription(), encoding: .JSON, headers: ["Content-Type": "application/json", "Accept": "application/json"])
             .response { (request, response, data, error) in
-                do {
+
+				do {
+					try print(NSJSONSerialization.JSONObjectWithData((request?.HTTPBody)!, options: .AllowFragments))
+				} catch {
+					
+				}
+				
+				do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! [String:AnyObject]
+					print("Response json: \(json)")
+					
                     let asset = Asset(dictionary: json)
                     completion(response: asset)
                 } catch {
                     completion(response: nil)
                 }
-                
-                print(error?.localizedDescription)                                
+
+				if let error = error {
+					print(error.localizedDescription)
+				} else {
+					print("Response: \(response)")
+				}
         }
     }
 }

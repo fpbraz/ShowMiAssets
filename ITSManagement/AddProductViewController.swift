@@ -93,7 +93,12 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
             self.performSegueWithIdentifier("assetCreationToSuccess", sender: response!.urlString)
         }
     }
+<<<<<<< HEAD
 
+=======
+	
+    
+>>>>>>> 83322428cf3de0efe9e1fc6623fdb5c5d0e1dbfe
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -144,7 +149,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         asset.name = nameTextField.text
         
         let productCharacteristic = ProductCharacteristic()
-        productCharacteristic.name = ownerTextField.text
+        productCharacteristic.owner = ownerTextField.text
         productCharacteristic.latitude = self.userLocation?.coordinate.latitude
         productCharacteristic.longitude = self.userLocation?.coordinate.longitude
         asset.productCharacteristic = productCharacteristic
@@ -162,8 +167,8 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         } else {
             locationManager.startUpdatingLocation()
         }
-        
     }
+	
     
     // MARK: - CLLocationManagerDelegate
     
@@ -179,6 +184,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             })
         }
+<<<<<<< HEAD
     }
     
     
@@ -200,4 +206,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
 //    "owner":owner,
 //    "coordinates":coordinatesString,
 //    "photos":photos,
+=======
+    }    
+>>>>>>> 83322428cf3de0efe9e1fc6623fdb5c5d0e1dbfe
 }

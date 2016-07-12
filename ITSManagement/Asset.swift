@@ -99,7 +99,7 @@ class Asset {
     }
     
     func parametersDescription() -> [String: AnyObject] {
-        guard let name = name ,let owner = productCharacteristic?.name ,let latitude = productCharacteristic?.latitude ,let longitude = productCharacteristic?.longitude, let photos = productCharacteristic?.picturesURLs  else {
+        guard let name = name ,let owner = productCharacteristic?.owner ,let latitude = productCharacteristic?.latitude ,let longitude = productCharacteristic?.longitude, let photos = productCharacteristic?.picturesURLs  else {
             return [String: AnyObject]()
         }
         
