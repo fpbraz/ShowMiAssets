@@ -33,3 +33,9 @@ Params:
 * assetID - *string* - ID of the related asset
 * photo - *string* - url of the photo 
 * coordinates - *string (latitude,longitude)* - issue coordinates
+
+#### photo_tag
+
+##### GET
+
+* url - *string* - url-encoded URL of the image for recognition
