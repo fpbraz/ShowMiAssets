@@ -35,7 +35,6 @@ class Asset {
     var productPrice: ProductPrice?
     var realizingServiceID: String?
     
-    
     lazy var dateFormatter: NSDateFormatter = {
        var dateFormatter = NSDateFormatter()
         dateFormatter.calendar = NSCalendar.currentCalendar()
@@ -64,5 +63,20 @@ class Asset {
         realizingServiceID = ((dictionary["realizingService"] as! [[String:AnyObject]]).first!)["id"] as? String
         productPrice = ProductPrice(dictionaryList: dictionary["productPrice"] as! [[String:AnyObject]])
     }
+    
+    func parametersDescription() -> [String: AnyObject] {
+        guard let name = name ,let owner = productCharacteristic?.name ,let latitude = productCharacteristic?.latitude ,let longitude = productCharacteristic?.longitude, let photos = productCharacteristic?.picturesURLs  else {
+            return [String: AnyObject]()
+        }
         
+        let coordinatesString = "\(latitude), \(longitude)"
+        
+        return [
+            "name":name,
+            "owner":owner,
+            "coordinates":coordinatesString,
+            "photos":photos,
+        ]
+    }
+    
 }

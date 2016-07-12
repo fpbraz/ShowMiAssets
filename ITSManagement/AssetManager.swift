@@ -21,4 +21,19 @@ class AssetManager {
                 }
         }
     }
+    
+    func requestAssetCreation(asset: Asset, completion: (response: NSHTTPURLResponse?)->()) {
+        Alamofire.request(.POST, "http://marsupial.mybluemix.net/asset",
+            parameters: asset.parametersDescription(), encoding: .JSON, headers: ["Content-Type": "application/json", "Accept": "application/json"])
+            .response { (request, response, data, error) in
+                do {
+                    try print(NSJSONSerialization.JSONObjectWithData((request?.HTTPBody)!, options: .AllowFragments))
+                } catch {
+                    
+                }
+                
+                print(error?.localizedDescription)
+                completion(response: response)
+        }
+    }
 }
