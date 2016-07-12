@@ -11,15 +11,13 @@ http://vancouver-hack-demo.mybluemix.net/
 
 #### asset
 
-**GET**
+##### GET
 
 Params:
 
 * id - *string* - asset ID
 
-**POST**
-
-Params:
+##### POST
 
 * name - *string* - name
 * owner - *string* - owner
@@ -28,9 +26,7 @@ Params:
 
 #### ticket
 
-**POST**
-
-Params:
+##### POST
 
 * description - *string* - description of the issue
 * assetID - *string* - ID of the related asset
