@@ -43,6 +43,7 @@ class AssetDetailViewController: UIViewController {
         }
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "assetDetailToReportSegue" {
             let destinationVC = segue.destinationViewController as! ReportViewController

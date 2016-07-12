@@ -42,6 +42,10 @@ class Asset {
         return dateFormatter
     }()
     
+    init(){
+        
+    }
+    
     init(dictionary:[String:AnyObject]) {
         id = dictionary["id"] as? Int
         urlString = dictionary["href"] as? String

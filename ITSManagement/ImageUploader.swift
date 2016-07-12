@@ -48,8 +48,7 @@ final class ImageUploader {
 			runningUploads[filePath] = uploadDelegate
 		}
 	}
-	
-	
+		
 	// MARK: - Private methods
 	
 	private static func saveImage(image: UIImage, withName name: String) -> String {

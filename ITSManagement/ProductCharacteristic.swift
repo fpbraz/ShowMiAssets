@@ -15,6 +15,10 @@ class ProductCharacteristic {
     var latitude:Double?
     var longitude:Double?
     
+    init(){
+        
+    }
+    
     init(dictionaryList:[[String:AnyObject]]) {
        let firstDict = dictionaryList.first!
         name = firstDict["name"] as? String
