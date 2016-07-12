@@ -93,13 +93,9 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
             self.performSegueWithIdentifier("assetCreationToSuccess", sender: response!.urlString)
         }
     }
-<<<<<<< HEAD
 
-=======
 	
-    
->>>>>>> 83322428cf3de0efe9e1fc6623fdb5c5d0e1dbfe
-    // MARK: - UIImagePickerControllerDelegate
+	// MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -184,7 +180,6 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             })
         }
-<<<<<<< HEAD
     }
     
     
@@ -202,11 +197,4 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         return scaledImage
     }
     
-//    "name":name,
-//    "owner":owner,
-//    "coordinates":coordinatesString,
-//    "photos":photos,
-=======
-    }    
->>>>>>> 83322428cf3de0efe9e1fc6623fdb5c5d0e1dbfe
 }
