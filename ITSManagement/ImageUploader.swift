@@ -21,7 +21,6 @@ final class ImageUploader {
 	private static var runningUploads: [String : DelegateResponder] = [:]
 	
 	
-	
 	// MARK: - API
 	
 	static func uploadImage(image: UIImage?, completionHandler: (String?) -> Void) {
@@ -54,7 +53,7 @@ final class ImageUploader {
 	
 	private static func saveImage(image: UIImage, withName name: String) -> String {
 	
-		let data: NSData = UIImageJPEGRepresentation(image, 1.0)!
+		let data: NSData = UIImageJPEGRepresentation(image, 0.6)!
 		let directory = NSTemporaryDirectory() as NSString
 		let fullPathString = directory.stringByAppendingPathComponent("\(name).jpeg")
 		
