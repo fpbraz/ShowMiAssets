@@ -16,20 +16,21 @@ class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     lazy var readerViewController = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
     
     @IBAction func searchButtonAction(sender: AnyObject) {
-        let assetManager = AssetManager()
-        assetManager.fetchAssets { (result) in
+        readerViewController.delegate = self
+        
+        readerViewController.completionBlock = { (result: QRCodeReaderResult?) in
             print(result)
         }
         
-        
-//        readerViewController.delegate = self
-//        
-//        readerViewController.completionBlock = { (result: QRCodeReaderResult?) in
-//            print(result)
-//        }
-//        
-//        readerViewController.modalPresentationStyle = .FormSheet
-//        presentViewController(readerViewController, animated: true, completion: nil)
+        readerViewController.modalPresentationStyle = .FormSheet
+        presentViewController(readerViewController, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "scanToReportSegue" {
+            let destinationVC = segue.destinationViewController as! AssetDetailViewController
+            destinationVC.asset = sender as? Asset
+        }
     }
 
     // QRReader Delegate
@@ -38,8 +39,12 @@ class ViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     }
 
     func readerDidCancel(reader: QRCodeReaderViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.performSegueWithIdentifier("scanToReportSegue", sender: nil)
+        let assetManager = AssetManager()
+        assetManager.fetchAssets { (result) in
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.performSegueWithIdentifier("scanToReportSegue", sender: result.first)
+        }
+        
     }
     
 }

@@ -28,6 +28,7 @@
 		558B481E1D34A5A00046DE5C /* RelatedParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B481D1D34A5A00046DE5C /* RelatedParty.swift */; };
 		558B48201D34A7370046DE5C /* ProductPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B481F1D34A7370046DE5C /* ProductPrice.swift */; };
 		558B48221D34A8950046DE5C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48211D34A8950046DE5C /* Price.swift */; };
+		558B48241D34CC600046DE5C /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48231D34CC600046DE5C /* AssetDetailViewController.swift */; };
 		83AD954256EB9B8E6CA52552 /* Pods_ITSManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */; };
 		B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		558B481D1D34A5A00046DE5C /* RelatedParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatedParty.swift; sourceTree = "<group>"; };
 		558B481F1D34A7370046DE5C /* ProductPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPrice.swift; sourceTree = "<group>"; };
 		558B48211D34A8950046DE5C /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		558B48231D34CC600046DE5C /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		5690AEE12C771252F90B054F /* Pods-ITSManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.release.xcconfig"; sourceTree = "<group>"; };
 		5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,7 @@
 			children = (
 				558B47E01D344DFC0046DE5C /* AppDelegate.swift */,
 				558B47E21D344DFC0046DE5C /* ViewController.swift */,
+				558B48231D34CC600046DE5C /* AssetDetailViewController.swift */,
 				558B48051D34674C0046DE5C /* AddProductViewController.swift */,
 				558B48091D348C380046DE5C /* ReportViewController.swift */,
 				558B480B1D3496E70046DE5C /* SelectionButton.swift */,
@@ -387,6 +390,7 @@
 				558B48221D34A8950046DE5C /* Price.swift in Sources */,
 				558B48061D34674C0046DE5C /* AddProductViewController.swift in Sources */,
 				558B480A1D348C380046DE5C /* ReportViewController.swift in Sources */,
+				558B48241D34CC600046DE5C /* AssetDetailViewController.swift in Sources */,
 				558B47E91D344DFC0046DE5C /* ITSManagement.xcdatamodeld in Sources */,
 				558B48121D34A2390046DE5C /* Asset.swift in Sources */,
 				558B48101D34A21C0046DE5C /* AssetManager.swift in Sources */,

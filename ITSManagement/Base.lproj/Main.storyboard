@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="236" y="265"/>
         </scene>
-        <!--View Controller-->
+        <!--Asset Detail View Controller-->
         <scene sceneID="hib-Nc-hfG">
             <objects>
-                <viewController id="sm1-NN-f1i" sceneMemberID="viewController">
+                <viewController id="sm1-NN-f1i" customClass="AssetDetailViewController" customModule="ITSManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hVp-tA-cdc"/>
                         <viewControllerLayoutGuide type="bottom" id="zpN-8R-s6S"/>
@@ -201,6 +201,12 @@
                             <constraint firstAttribute="trailing" secondItem="dQw-A1-DtJ" secondAttribute="trailing" id="uXK-SP-ghS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="bQK-Mn-U6X" id="nkR-6A-VYa"/>
+                        <outlet property="mapView" destination="jZO-FI-Dfa" id="Lif-jc-wDZ"/>
+                        <outlet property="nameLabel" destination="Gfq-rH-jDS" id="NOe-Yn-kaC"/>
+                        <outlet property="ownerLabel" destination="VOH-1c-dO2" id="mhi-J0-yQO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFk-uh-8RG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
