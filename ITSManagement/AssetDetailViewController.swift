@@ -40,4 +40,12 @@ class AssetDetailViewController: UIViewController {
             mapView.addAnnotation(annotation)
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "assetDetailToReportSegue" {
+            let destinationVC = segue.destinationViewController as! ReportViewController
+            destinationVC.asset = self.asset!
+
+        }
+    }
 }

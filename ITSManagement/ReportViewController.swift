@@ -15,11 +15,17 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
+    
     @IBOutlet var selectionButtons: [SelectionButton]!
+    @IBOutlet weak var damagedButton: SelectionButton!
+    @IBOutlet weak var misplacedButton: SelectionButton!
+    @IBOutlet weak var overCapacityButton: SelectionButton!
 	
     @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
 	@IBOutlet var reportButton: UIBarButtonItem!
 	
+    var asset: Asset?
+    
     var userLocation: CLLocation?
     
     lazy var geocoderManager: GeocoderManager = {
@@ -28,6 +34,10 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     lazy var locationManager: CLLocationManager = {
         return CLLocationManager()
+    }()
+    
+    lazy var ticketManager: TicketManager = {
+        return TicketManager()
     }()
     
     lazy var imagePickerController: UIImagePickerController = {
@@ -144,11 +154,21 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 	
 	private func sendReport() {
 
-		ImageUploader.uploadImage(assetPicture) {
+		ImageUploader.uploadImage(nil) {
 			print("Image uploading finished")
-			// TODO: send post request to ticket
-		}
-	}
+            
+            let ticket = Ticket()
+            ticket.issue = ""
+            ticket.issue_type = self.getIssueTypeFromUI()            
+            ticket.assetID = String(self.asset?.id)
+            ticket.photo = ""//assetPicture.addres
+            ticket.coordinates = self.userLocation?.coordinate ?? CLLocationCoordinate2DMake(0, 0)
+            
+            self.ticketManager.requestTicketCreation(ticket) { response in
+                print(response!.statusCode)
+            }
+        }
+    }
 	
 	private func updateUI() {
 
@@ -156,8 +176,19 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 		let issueTypeSelected = selectionButtons.reduce(false) { (result, button) -> Bool in
 			return result || button.selected
 		}
-		
+		 
 		reportButton.enabled = issueTypeSelected
 	}
+    
+    private func getIssueTypeFromUI() -> String {
+        if damagedButton.selected {
+            return "Damaged"
+        } else if misplacedButton.selected {
+            return "Misplaced"
+        } else if overCapacityButton.selected {
+            return "Overcapacity"
+        }
+        return ""
+    }
 	
 }

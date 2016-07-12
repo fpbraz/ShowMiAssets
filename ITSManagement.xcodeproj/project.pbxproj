@@ -31,6 +31,8 @@
 		558B48221D34A8950046DE5C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48211D34A8950046DE5C /* Price.swift */; };
 		558B48241D34CC600046DE5C /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48231D34CC600046DE5C /* AssetDetailViewController.swift */; };
 		558B48261D35173E0046DE5C /* GeocoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48251D35173E0046DE5C /* GeocoderManager.swift */; };
+		558B48291D352E670046DE5C /* TicketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B48281D352E670046DE5C /* TicketManager.swift */; };
+		558B482B1D352F1B0046DE5C /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B482A1D352F1B0046DE5C /* Ticket.swift */; };
 		83AD954256EB9B8E6CA52552 /* Pods_ITSManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */; };
 		B311DF2DDC101920466B2727 /* Pods_ITSManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		558B48211D34A8950046DE5C /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		558B48231D34CC600046DE5C /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		558B48251D35173E0046DE5C /* GeocoderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocoderManager.swift; sourceTree = "<group>"; };
+		558B48281D352E670046DE5C /* TicketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketManager.swift; sourceTree = "<group>"; };
+		558B482A1D352F1B0046DE5C /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		5690AEE12C771252F90B054F /* Pods-ITSManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.release.xcconfig"; sourceTree = "<group>"; };
 		5797A7C307E8DCE9E381E9A3 /* Pods_ITSManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8619172728551B31BDFF7A8 /* Pods_ITSManagementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITSManagementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,16 +138,9 @@
 				558B480B1D3496E70046DE5C /* SelectionButton.swift */,
 				558B480F1D34A21C0046DE5C /* AssetManager.swift */,
 				558B48251D35173E0046DE5C /* GeocoderManager.swift */,
+				558B48281D352E670046DE5C /* TicketManager.swift */,
+				558B482A1D352F1B0046DE5C /* Ticket.swift */,
 				558B48271D3529EC0046DE5C /* Asset */,
-				558B48111D34A2390046DE5C /* Asset.swift */,
-				558B48131D34A3F70046DE5C /* ProductOfering.swift */,
-				558B48151D34A44D0046DE5C /* ProductSpecification.swift */,
-				558B48171D34A48E0046DE5C /* ProductCharacteristic.swift */,
-				558B48191D34A4E80046DE5C /* ProductRelationship.swift */,
-				558B481B1D34A5680046DE5C /* BillingAccount.swift */,
-				558B481D1D34A5A00046DE5C /* RelatedParty.swift */,
-				558B481F1D34A7370046DE5C /* ProductPrice.swift */,
-				558B48211D34A8950046DE5C /* Price.swift */,
 				255E5ED21D34F2A000248F25 /* ImageUploader.swift */,
 				558B47E41D344DFC0046DE5C /* Main.storyboard */,
 				558B47EA1D344DFC0046DE5C /* Assets.xcassets */,
@@ -409,6 +406,7 @@
 				558B48201D34A7370046DE5C /* ProductPrice.swift in Sources */,
 				558B481A1D34A4E80046DE5C /* ProductRelationship.swift in Sources */,
 				558B47E11D344DFC0046DE5C /* AppDelegate.swift in Sources */,
+				558B48291D352E670046DE5C /* TicketManager.swift in Sources */,
 				558B480C1D3496E70046DE5C /* SelectionButton.swift in Sources */,
 				558B48221D34A8950046DE5C /* Price.swift in Sources */,
 				558B48061D34674C0046DE5C /* AddProductViewController.swift in Sources */,
@@ -418,6 +416,7 @@
 				558B47E91D344DFC0046DE5C /* ITSManagement.xcdatamodeld in Sources */,
 				558B48121D34A2390046DE5C /* Asset.swift in Sources */,
 				558B48101D34A21C0046DE5C /* AssetManager.swift in Sources */,
+				558B482B1D352F1B0046DE5C /* Ticket.swift in Sources */,
 				558B48161D34A44D0046DE5C /* ProductSpecification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
