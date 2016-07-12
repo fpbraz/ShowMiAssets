@@ -12,7 +12,7 @@ import Alamofire
 class AssetManager {
     
     func fetchAssets(completion: (result:[Asset]) -> ()) {
-        Alamofire.request(.GET, "http://marsupial.mybluemix.net/asset?id=16", parameters: nil)
+        Alamofire.request(.GET, "http://marsupial.mybluemix.net/asset?id=48", parameters: nil)
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

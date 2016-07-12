@@ -28,6 +28,16 @@ class AssetDetailViewController: UIViewController {
             
             nameLabel.text = asset.name
             ownerLabel.text = asset.productCharacteristic?.name
+            
+            let center = CLLocationCoordinate2DMake(asset.productCharacteristic!.latitude!, asset.productCharacteristic!.longitude!)
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let region = MKCoordinateRegion(center: center, span: span)
+            
+            mapView.region = region
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = center
+            mapView.addAnnotation(annotation)
         }
     }
 }

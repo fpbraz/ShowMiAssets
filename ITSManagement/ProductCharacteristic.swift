@@ -12,6 +12,8 @@ class ProductCharacteristic {
     var name:String?
     var value:String?
     var picturesURLs:[String]?
+    var latitude:Double?
+    var longitude:Double?
     
     init(dictionaryList:[[String:AnyObject]]) {
        let firstDict = dictionaryList.first!
@@ -20,6 +22,12 @@ class ProductCharacteristic {
         
         let picDicts = dictionaryList[1]
         picturesURLs = getPictureURLsFromDictionary(picDicts)
+        
+        let coordinateDicts = dictionaryList[2]
+        let coordinateString = coordinateDicts["value"] as? String
+        let components = coordinateString?.componentsSeparatedByString(",")
+        latitude = (components![0] as NSString!).doubleValue
+        longitude = (components![1] as NSString!).doubleValue
     }
 
     func getPictureURLsFromDictionary(dictionary: [String:AnyObject]) -> [String] {
