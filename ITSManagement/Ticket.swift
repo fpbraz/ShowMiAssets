@@ -22,7 +22,7 @@ class Ticket {
             return [String: AnyObject]()
         }
         
-        let coordinatesString = "\(coordinates.latitude), \(coordinates.longitude)"
+        let coordinatesString = "\(coordinates.latitude),\(coordinates.longitude)"
         
         return [
             "issue":issue,

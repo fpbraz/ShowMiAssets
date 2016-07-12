@@ -152,16 +152,19 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 	}
 	
 	private func sendReport() {
-        SwiftSpinner.show("Uploading Image")
+
+		SwiftSpinner.show("Uploading Image")
         
+		let issueType = self.getIssueTypeFromUI()
+
 		ImageUploader.uploadImage(assetPicture) { photoUrl in
 			print("Image uploading finished: \(photoUrl)")
 			
             SwiftSpinner.sharedInstance.titleLabel.text = "Creating Ticket"
             
 			let ticket = Ticket()
-			ticket.issue = ""
-			ticket.issue_type = self.getIssueTypeFromUI()
+			ticket.issue = "This asset is \(issueType)"
+			ticket.issue_type = issueType
 			ticket.assetID = String(self.asset?.id)
 			ticket.photo = ""//assetPicture.addres
 			ticket.coordinates = self.userLocation?.coordinate ?? CLLocationCoordinate2DMake(0, 0)
