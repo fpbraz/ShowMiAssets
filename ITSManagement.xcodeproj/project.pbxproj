@@ -132,15 +132,7 @@
 				558B480B1D3496E70046DE5C /* SelectionButton.swift */,
 				558B480F1D34A21C0046DE5C /* AssetManager.swift */,
 				558B48251D35173E0046DE5C /* GeocoderManager.swift */,
-				558B48111D34A2390046DE5C /* Asset.swift */,
-				558B48131D34A3F70046DE5C /* ProductOfering.swift */,
-				558B48151D34A44D0046DE5C /* ProductSpecification.swift */,
-				558B48171D34A48E0046DE5C /* ProductCharacteristic.swift */,
-				558B48191D34A4E80046DE5C /* ProductRelationship.swift */,
-				558B481B1D34A5680046DE5C /* BillingAccount.swift */,
-				558B481D1D34A5A00046DE5C /* RelatedParty.swift */,
-				558B481F1D34A7370046DE5C /* ProductPrice.swift */,
-				558B48211D34A8950046DE5C /* Price.swift */,
+				558B48271D3529EC0046DE5C /* Asset */,
 				558B47E41D344DFC0046DE5C /* Main.storyboard */,
 				558B47EA1D344DFC0046DE5C /* Assets.xcassets */,
 				558B47EC1D344DFC0046DE5C /* LaunchScreen.storyboard */,
@@ -157,6 +149,22 @@
 				558B47FA1D344DFC0046DE5C /* Info.plist */,
 			);
 			path = ITSManagementTests;
+			sourceTree = "<group>";
+		};
+		558B48271D3529EC0046DE5C /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				558B48111D34A2390046DE5C /* Asset.swift */,
+				558B48131D34A3F70046DE5C /* ProductOfering.swift */,
+				558B48151D34A44D0046DE5C /* ProductSpecification.swift */,
+				558B48171D34A48E0046DE5C /* ProductCharacteristic.swift */,
+				558B48191D34A4E80046DE5C /* ProductRelationship.swift */,
+				558B481B1D34A5680046DE5C /* BillingAccount.swift */,
+				558B481D1D34A5A00046DE5C /* RelatedParty.swift */,
+				558B481F1D34A7370046DE5C /* ProductPrice.swift */,
+				558B48211D34A8950046DE5C /* Price.swift */,
+			);
+			name = Asset;
 			sourceTree = "<group>";
 		};
 		9122011056841F5B936771EF /* Pods */ = {
