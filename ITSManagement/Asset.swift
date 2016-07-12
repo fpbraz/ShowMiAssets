@@ -73,13 +73,13 @@ class Asset {
             return [String: AnyObject]()
         }
         
-        let coordinatesString = "\(latitude), \(longitude)"
+        let coordinatesString = "\(latitude),\(longitude)"
         
         return [
             "name":name,
             "owner":owner,
             "coordinates":coordinatesString,
-            "photos":photos,
+            "photos":photos.joinWithSeparator(","),
         ]
     }
     
