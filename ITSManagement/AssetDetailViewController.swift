@@ -21,6 +21,8 @@ class AssetDetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        title = "Asset"
+        
         if let asset = asset {
             let URL = NSURL(string: (asset.productCharacteristic?.picturesURLs?.first!)!)!
             

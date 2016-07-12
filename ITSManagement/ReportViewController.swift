@@ -55,15 +55,15 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
 	
-	
 	// MARK: - UIViewController
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-		
+        
+        title = "Report Issue"
+        
 		updateUI()
 	}
-
 	
 	// MARK: - User actions handling
 	
