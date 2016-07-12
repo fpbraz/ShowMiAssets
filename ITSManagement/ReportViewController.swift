@@ -9,15 +9,21 @@
 import UIKit
 import CoreLocation
 
+
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet var selectionButtons: [SelectionButton]!
+<<<<<<< 3bf927e170c1848dc83540df0c87d18c0740ad55
     
     @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
     
+=======
+	@IBOutlet var reportButton: UIBarButtonItem!
+	
+>>>>>>> Added Cloudinary for image upload
     var userLocation: CLLocation?
     
     lazy var geocoderManager: GeocoderManager = {
@@ -39,8 +45,18 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         didSet {
             userImageView.image = assetPicture
             hideCameraButton()
+			updateUI()
         }
     }
+	
+	
+	// MARK: - UIViewController
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateUI()
+	}
 
 	
 	// MARK: - User actions handling
@@ -54,11 +70,22 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 	
 	@IBAction func selectionButtonAction(sender: AnyObject) {
+		
 		for button in selectionButtons {
-			button.selected = button === sender
+			if button === sender {
+				button.selected = !button.selected
+			} else {
+				button.selected = false
+			}
 		}
+		
+		updateUI()
 	}
 
+	@IBAction func reportButtonAction() {
+		sendReport()
+	}
+	
 	
 	// MARK: - UIImagePickerControllerDelegate
 	
@@ -119,5 +146,26 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 		presentViewController(imagePickerController, animated: true, completion: nil)
 	}
 	
+<<<<<<< 3bf927e170c1848dc83540df0c87d18c0740ad55
 >>>>>>> code beautifying
+=======
+	private func sendReport() {
+
+		ImageUploader.uploadImage(assetPicture) {
+			print("Image uploading finished")
+			// TODO: send post request to ticket
+		}
+	}
+	
+	private func updateUI() {
+
+//		let pictureSelected = assetPicture != nil
+		let issueTypeSelected = selectionButtons.reduce(false) { (result, button) -> Bool in
+			return result || button.selected
+		}
+		
+		reportButton.enabled = issueTypeSelected
+	}
+	
+>>>>>>> Added Cloudinary for image upload
 }

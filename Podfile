@@ -10,6 +10,7 @@ target 'ITSManagement' do
   pod "QRCode", "~> 0.5"
   pod 'Alamofire', '~> 3.4'
   pod 'AlamofireImage', '~> 2.0'
+  pod 'Cloudinary'
   
   target 'ITSManagementTests' do
     inherit! :search_paths

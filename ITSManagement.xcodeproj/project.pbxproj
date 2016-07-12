@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		255E5ED31D34F2A000248F25 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255E5ED21D34F2A000248F25 /* ImageUploader.swift */; };
 		558B47E11D344DFC0046DE5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B47E01D344DFC0046DE5C /* AppDelegate.swift */; };
 		558B47E31D344DFC0046DE5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B47E21D344DFC0046DE5C /* ViewController.swift */; };
 		558B47E61D344DFC0046DE5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558B47E41D344DFC0046DE5C /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		01E3FDDAE58474D97FFE8604 /* Pods-ITSManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagement.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagement/Pods-ITSManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		231AF8B41D72919CC06D7FFA /* Pods-ITSManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagementTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagementTests/Pods-ITSManagementTests.release.xcconfig"; sourceTree = "<group>"; };
+		255E5ED21D34F2A000248F25 /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		3C2533FACDF9353FE9FDC7DD /* Pods-ITSManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITSManagementTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITSManagementTests/Pods-ITSManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
 		558B47DD1D344DFB0046DE5C /* ITSManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITSManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		558B47E01D344DFC0046DE5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				558B481D1D34A5A00046DE5C /* RelatedParty.swift */,
 				558B481F1D34A7370046DE5C /* ProductPrice.swift */,
 				558B48211D34A8950046DE5C /* Price.swift */,
+				255E5ED21D34F2A000248F25 /* ImageUploader.swift */,
 				558B47E41D344DFC0046DE5C /* Main.storyboard */,
 				558B47EA1D344DFC0046DE5C /* Assets.xcassets */,
 				558B47EC1D344DFC0046DE5C /* LaunchScreen.storyboard */,
@@ -385,6 +388,7 @@
 				558B481E1D34A5A00046DE5C /* RelatedParty.swift in Sources */,
 				558B481C1D34A5680046DE5C /* BillingAccount.swift in Sources */,
 				558B47E31D344DFC0046DE5C /* ViewController.swift in Sources */,
+				255E5ED31D34F2A000248F25 /* ImageUploader.swift in Sources */,
 				558B48201D34A7370046DE5C /* ProductPrice.swift in Sources */,
 				558B481A1D34A4E80046DE5C /* ProductRelationship.swift in Sources */,
 				558B47E11D344DFC0046DE5C /* AppDelegate.swift in Sources */,
