@@ -9,15 +9,17 @@
 import UIKit
 import CoreLocation
 
+
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet var selectionButtons: [SelectionButton]!
-    
+	
     @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
-    
+	@IBOutlet var reportButton: UIBarButtonItem!
+	
     var userLocation: CLLocation?
     
     lazy var geocoderManager: GeocoderManager = {
@@ -39,14 +41,22 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         didSet {
             userImageView.image = assetPicture
             hideCameraButton()
+			updateUI()
         }
     }
-    
-    func showImagePicker() {
-        imagePickerController.delegate = self
-        presentViewController(imagePickerController, animated: true, completion: nil)
-    }
-    
+	
+	
+	// MARK: - UIViewController
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateUI()
+	}
+
+	
+	// MARK: - User actions handling
+	
     @IBAction func photoButtonAction(sender: AnyObject) {
         showImagePicker()
     }
@@ -54,7 +64,27 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func locationButtonAction() {
         requestUserLocation()
     }
-    
+	
+	@IBAction func selectionButtonAction(sender: AnyObject) {
+		
+		for button in selectionButtons {
+			if button === sender {
+				button.selected = !button.selected
+			} else {
+				button.selected = false
+			}
+		}
+		
+		updateUI()
+	}
+
+	@IBAction func reportButtonAction() {
+		sendReport()
+	}
+	
+	
+	// MARK: - UIImagePickerControllerDelegate
+	
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             assetPicture = pickedImage
@@ -62,49 +92,72 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func hideCameraButton() {
-        UIView.animateWithDuration(0.25, animations: {
-            self.cameraButton.alpha = 0
-        }, completion: { _ in
-                self.cameraButton.hidden = true
-                self.cameraButton.alpha = 1
-        })
-    }
-    
-    func requestUserLocation() {
-        self.locationButton.enabled = false
-        self.locationActivityIndicator.startAnimating()
-        
-        locationManager.delegate = self
-        
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
-        }
+	
+	
+	// MARK: - CLLocationManagerDelegate
+	
+	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if let userLocation = locations.first {
+			self.userLocation = userLocation
+			manager.stopUpdatingLocation()
+			
+			geocoderManager.fetchAddress(userLocation.coordinate, completion: { (address) in
+				self.locationActivityIndicator.stopAnimating()
+				if let address = address {
+					self.locationButton.setTitle(address, forState: .Normal)
+				}
+			})
+			
+		}
+	}
+	
+	
+	// MARK: - Private methods
+	
+	private func hideCameraButton() {
+		UIView.animateWithDuration(0.25, animations: {
+			self.cameraButton.alpha = 0
+			}, completion: { _ in
+				self.cameraButton.hidden = true
+				self.cameraButton.alpha = 1
+		})
+	}
+	
+	private func requestUserLocation() {
+		self.locationButton.enabled = false
+		self.locationActivityIndicator.startAnimating()
+		
+		locationManager.delegate = self
+		
+		if CLLocationManager.authorizationStatus() == .NotDetermined {
+			locationManager.requestWhenInUseAuthorization()
+		} else {
+			locationManager.startUpdatingLocation()
+		}
+		
+	}
+	
+	private func showImagePicker() {
+		imagePickerController.delegate = self
+		presentViewController(imagePickerController, animated: true, completion: nil)
+	}
+	
+	private func sendReport() {
 
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let userLocation = locations.first {
-            self.userLocation = userLocation
-            manager.stopUpdatingLocation()
-            
-            geocoderManager.fetchAddress(userLocation.coordinate, completion: { (address) in
-                self.locationActivityIndicator.stopAnimating()
-                if let address = address {
-                    self.locationButton.setTitle(address, forState: .Normal)
-                }
-            })
-            
-        }
-    }
-    
-    @IBAction func selectionButtonAction(sender: AnyObject) {
-        for button in selectionButtons {
-            button.selected = button === sender            
-        }
-    }
-    
+		ImageUploader.uploadImage(assetPicture) {
+			print("Image uploading finished")
+			// TODO: send post request to ticket
+		}
+	}
+	
+	private func updateUI() {
+
+//		let pictureSelected = assetPicture != nil
+		let issueTypeSelected = selectionButtons.reduce(false) { (result, button) -> Bool in
+			return result || button.selected
+		}
+		
+		reportButton.enabled = issueTypeSelected
+	}
+	
 }
