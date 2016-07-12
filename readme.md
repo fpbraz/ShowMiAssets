@@ -28,8 +28,8 @@ Params:
 
 ##### POST
 
-* description - *string* - description of the issue
+* issue - *string* - description of the issue
+* issue_type - *string (possible values: Damaged, Misplaced, Overcapacity)* - type of issue being reported
 * assetID - *string* - ID of the related asset
-* issue_type - *string (possible values: Damaged, Missplaced, Overcapacity)* - type of issue being reported
 * photo - *string* - url of the photo 
-* location - *string (latitude,longitude)* - issue coordinates
+* coordinates - *string (latitude,longitude)* - issue coordinates
