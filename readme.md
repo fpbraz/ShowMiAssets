@@ -21,7 +21,7 @@ Params:
 
 * name - *string* - name
 * owner - *string* - owner
-* location - *string (latitude,longitude)* - coordinates of the asset
+* coordinates - *string (latitude,longitude)* - coordinates of the asset
 * photos - *string* - comma-separated list of urls
 
 #### ticket
