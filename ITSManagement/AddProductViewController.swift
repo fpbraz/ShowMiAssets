@@ -95,6 +95,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
             })
         }
     }
+	
     
     // MARK: - UIImagePickerControllerDelegate
     
@@ -125,7 +126,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         asset.name = nameTextField.text
         
         let productCharacteristic = ProductCharacteristic()
-        productCharacteristic.name = ownerTextField.text
+        productCharacteristic.owner = ownerTextField.text
         productCharacteristic.latitude = self.userLocation?.coordinate.latitude
         productCharacteristic.longitude = self.userLocation?.coordinate.longitude
         asset.productCharacteristic = productCharacteristic
@@ -143,8 +144,8 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         } else {
             locationManager.startUpdatingLocation()
         }
-        
     }
+	
     
     // MARK: - CLLocationManagerDelegate
     

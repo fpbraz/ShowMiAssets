@@ -29,7 +29,7 @@ class AssetDetailViewController: UIViewController {
             imageView.af_setImageWithURL(URL)
             
             nameLabel.text = asset.name
-            ownerLabel.text = asset.productCharacteristic?.name
+            ownerLabel.text = asset.productCharacteristic?.owner
             
             let center = CLLocationCoordinate2DMake(asset.productCharacteristic!.latitude!, asset.productCharacteristic!.longitude!)
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
